@@ -5,7 +5,7 @@ console.log(userFlavors)
 
 let userInput = userFlavors.split(",")
 
-console.log(userInput)
+console.table(userInput)
 
 const userOrder = {
     vanilla: 0,
@@ -16,26 +16,19 @@ const userOrder = {
 
 for (let i = 0; i < userInput.length; i++) {
     if (userInput[i] == "vanilla") {
-userOrder.vanilla ++
+        userOrder.vanilla++
+
     }
 
+    else if (userInput[i] == "strawberry") {
+        userOrder.strawberry++
+    }
+
+    else if (userInput[i] == "coffee") {
+        userOrder.coffee++
+    }
 
 }
 
-for (let i = 0; i < userInput.length; i++) {
-    if (userInput[i] == "strawberry") {
-userOrder.strawberry ++
-    }
-
-
-}
-
-for (let i = 0; i < userInput.length; i++) {
-    if (userInput[i] == "coffee") {
-userOrder.coffee ++
-    }
-
-
-}
 
 console.table(userOrder)
