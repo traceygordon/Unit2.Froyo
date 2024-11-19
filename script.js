@@ -1,34 +1,19 @@
-let userFlavors = prompt("Enter your order");
+const userFlavors = prompt("Enter your order");
 
-console.log(userFlavors)
+function getFroyoOrder(order) {
+  const flavorsArray = order.split(",");
 
+  const userOrder = {};
 
-let userInput = userFlavors.split(",")
-
-console.table(userInput)
-
-const userOrder = {
-    vanilla: 0,
-    strawberry: 0,
-    coffee: 0
-
+  for (let i = 0; i < flavorsArray.length; i++) {
+    const currentFlavor = flavorsArray[i];
+    if (!userOrder[currentFlavor]) {
+      userOrder[currentFlavor] = 1;
+    } else {
+      userOrder[currentFlavor] += 1;
+    }
+  }
+  return userOrder;
 }
 
-for (let i = 0; i < userInput.length; i++) {
-    if (userInput[i] == "vanilla") {
-        userOrder.vanilla++
-
-    }
-
-    else if (userInput[i] == "strawberry") {
-        userOrder.strawberry++
-    }
-
-    else if (userInput[i] == "coffee") {
-        userOrder.coffee++
-    }
-
-}
-
-
-console.table(userOrder)
+console.table(getFroyoOrder(userFlavors));
